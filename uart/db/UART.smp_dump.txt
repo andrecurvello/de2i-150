@@ -1,0 +1,28 @@
+
+State Machine - |UART|UARTTransmitter:TRANSMITTER|state
+Name state.stop2 state.stop1 state.bit7 state.bit6 state.bit5 state.bit4 state.bit3 state.bit2 state.bit1 state.bit0 state.start state.idle 
+state.idle 0 0 0 0 0 0 0 0 0 0 0 0 
+state.start 0 0 0 0 0 0 0 0 0 0 1 1 
+state.bit0 0 0 0 0 0 0 0 0 0 1 0 1 
+state.bit1 0 0 0 0 0 0 0 0 1 0 0 1 
+state.bit2 0 0 0 0 0 0 0 1 0 0 0 1 
+state.bit3 0 0 0 0 0 0 1 0 0 0 0 1 
+state.bit4 0 0 0 0 0 1 0 0 0 0 0 1 
+state.bit5 0 0 0 0 1 0 0 0 0 0 0 1 
+state.bit6 0 0 0 1 0 0 0 0 0 0 0 1 
+state.bit7 0 0 1 0 0 0 0 0 0 0 0 1 
+state.stop1 0 1 0 0 0 0 0 0 0 0 0 1 
+state.stop2 1 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |UART|UARTReceiver:RECEIVER|state
+Name state.stop state.bit7 state.bit6 state.bit5 state.bit4 state.bit3 state.bit2 state.bit1 state.bit0 state.idle 
+state.idle 0 0 0 0 0 0 0 0 0 0 
+state.bit0 0 0 0 0 0 0 0 0 1 1 
+state.bit1 0 0 0 0 0 0 0 1 0 1 
+state.bit2 0 0 0 0 0 0 1 0 0 1 
+state.bit3 0 0 0 0 0 1 0 0 0 1 
+state.bit4 0 0 0 0 1 0 0 0 0 1 
+state.bit5 0 0 0 1 0 0 0 0 0 1 
+state.bit6 0 0 1 0 0 0 0 0 0 1 
+state.bit7 0 1 0 0 0 0 0 0 0 1 
+state.stop 1 0 0 0 0 0 0 0 0 1 

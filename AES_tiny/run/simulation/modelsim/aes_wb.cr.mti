@@ -1,0 +1,79 @@
+/home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES/rtl/aes_enc_128.v {1 {vlog -work work +incdir+/home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES/sim /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES/rtl/aes_enc_128.v
+Model Technology ModelSim ALTERA vlog 10.1e Compiler 2013.06 Jun 12 2013
+-- Compiling module aes_enc_128
+
+Top level modules:
+	aes_enc_128
+
+} {} {}} /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES/sim/wb_master32.v {1 {vlog -work work +incdir+/home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES/sim /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES/sim/wb_master32.v
+Model Technology ModelSim ALTERA vlog 10.1e Compiler 2013.06 Jun 12 2013
+-- Compiling module WB_MASTER32
+
+Top level modules:
+	WB_MASTER32
+
+} {} {}} /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES/rtl/table.v {1 {vlog -work work +incdir+/home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES/sim /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES/rtl/table.v
+Model Technology ModelSim ALTERA vlog 10.1e Compiler 2013.06 Jun 12 2013
+-- Compiling module table_lookup
+-- Compiling module S4
+-- Compiling module T
+-- Compiling module S
+-- Compiling module xS
+
+Top level modules:
+	table_lookup
+	S4
+
+} {} {}} /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES/rtl/round.v {1 {vlog -work work +incdir+/home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES/sim /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES/rtl/round.v
+Model Technology ModelSim ALTERA vlog 10.1e Compiler 2013.06 Jun 12 2013
+-- Compiling module one_round
+-- Compiling module final_round
+
+Top level modules:
+	one_round
+	final_round
+
+} {} {}} /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES/rtl/aes_wb.v {1 {vlog -work work +incdir+/home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES/sim /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES/rtl/aes_wb.v
+Model Technology ModelSim ALTERA vlog 10.1e Compiler 2013.06 Jun 12 2013
+-- Compiling module aes_wb
+
+Top level modules:
+	aes_wb
+
+} {} {}} /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES/rtl/aes_128_top.v {1 {vlog -work work +incdir+/home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES/sim /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES/rtl/aes_128_top.v
+Model Technology ModelSim ALTERA vlog 10.1e Compiler 2013.06 Jun 12 2013
+-- Compiling module aes_128_top
+
+Top level modules:
+	aes_128_top
+
+} {} {}} /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES/sim/aes_128_top_tb.v {1 {vlog -work work +incdir+/home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES/sim /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES/sim/aes_128_top_tb.v
+Model Technology ModelSim ALTERA vlog 10.1e Compiler 2013.06 Jun 12 2013
+-- Compiling module aes_128_top_tb
+
+Top level modules:
+	aes_128_top_tb
+
+} {} {}} /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES/sim/wb_bus_mon.v {1 {vlog -work work +incdir+/home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES/sim /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES/sim/wb_bus_mon.v
+Model Technology ModelSim ALTERA vlog 10.1e Compiler 2013.06 Jun 12 2013
+-- Compiling module WB_BUS_MON
+
+Top level modules:
+	WB_BUS_MON
+
+} {} {}} /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES/sim/wb_master_behavioral.v {1 {vlog -work work +incdir+/home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES/sim /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES/sim/wb_master_behavioral.v
+Model Technology ModelSim ALTERA vlog 10.1e Compiler 2013.06 Jun 12 2013
+-- Compiling module WB_MASTER_BEHAVIORAL
+
+Top level modules:
+	WB_MASTER_BEHAVIORAL
+
+} {} {}} /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES/rtl/aes_128.v {1 {vlog -work work +incdir+/home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES/sim /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES/rtl/aes_128.v
+Model Technology ModelSim ALTERA vlog 10.1e Compiler 2013.06 Jun 12 2013
+-- Compiling module aes_128
+-- Compiling module expand_key_128
+
+Top level modules:
+	aes_128
+
+} {} {}}

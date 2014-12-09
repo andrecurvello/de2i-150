@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="aes_decrypt">
+		<CBX_INST_ENTRY INSTANCE_NAME="|aes_inv_cipher_top|altsyncram:kb_rtl_0" CBX_FILE_NAME="altsyncram_c3h1.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

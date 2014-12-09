@@ -1,0 +1,20 @@
+Fitter Status : Successful - Tue Dec  2 13:32:24 2014
+Quartus II 64-Bit Version : 14.0.0 Build 200 06/17/2014 SJ Full Version
+Revision Name : aes_test
+Top-level Entity Name : aes_128_top
+Family : Cyclone IV GX
+Device : EP4CGX150DF31C7
+Timing Models : Final
+Total logic elements : 3,493 / 149,760 ( 2 % )
+    Total combinational functions : 3,222 / 149,760 ( 2 % )
+    Dedicated logic registers : 2,846 / 149,760 ( 2 % )
+Total registers : 2846
+Total pins : 24 / 508 ( 5 % )
+Total virtual pins : 0
+Total memory bits : 565,024 / 6,635,520 ( 9 % )
+Embedded Multiplier 9-bit elements : 0 / 720 ( 0 % )
+Total GXB Receiver Channel PCS : 0 / 8 ( 0 % )
+Total GXB Receiver Channel PMA : 0 / 8 ( 0 % )
+Total GXB Transmitter Channel PCS : 0 / 8 ( 0 % )
+Total GXB Transmitter Channel PMA : 0 / 8 ( 0 % )
+Total PLLs : 1 / 8 ( 13 % )
