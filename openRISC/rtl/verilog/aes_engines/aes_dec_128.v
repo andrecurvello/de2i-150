@@ -1,12 +1,16 @@
+`timescale 1ns/1ns
+
 module aes_dec_128 (
 		    aes_clk_in,
 		    aes_rst_in,
+			 aes_key_ld,
 		    wb_clk_i, wb_rst_i, wb_dat_i, wb_dat_o,
 		    wb_adr_i, wb_sel_i, wb_we_i, wb_cyc_i, wb_stb_i, wb_ack_o
 		    );
 
    input aes_clk_in;
    input aes_rst_in;
+	input aes_key_ld;
    
    // WISHBONE common
    input wb_clk_i;     // WISHBONE clock
@@ -30,15 +34,15 @@ module aes_dec_128 (
    
    wire 	 dec_done;
    wire 	 dec_ld;
-   
-   assign key = 128'h126a83546212def2;
+  
+   assign key = 128'h0123456789abcdef0123456789abcdef;
    
    // Instantiate the Unit Under Test (UUT)
    aes_inv_cipher_top aes_decipher_128 
      (
       .clk(aes_clk_in), 
       .rst(aes_rst_in),
-      .kld(1'b1),
+      .kld(aes_key_ld),
       .ld(dec_ld),
       .done(dec_done),
       .key(key),

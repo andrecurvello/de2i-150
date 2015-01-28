@@ -1,3 +1,6 @@
+`include "timescale.v"
+`timescale 1ns/1ns
+
 module aes_enc_wb(
 		  wb_clk_i, wb_rst_i, wb_dat_i, wb_dat_o, 
 
@@ -40,6 +43,9 @@ module aes_enc_wb(
    reg 		      done_reg; 		      
    reg 		      start;
 
+   reg 		      cs;
+		      
+
    //Register Addreses 
 `define plainIn0 8'h00
 `define plainIn1 8'h04
@@ -55,43 +61,79 @@ module aes_enc_wb(
    
    always @(posedge wb_clk_i or posedge wb_rst_i)
      begin
-	if ( wb_rst_i )begin
-	   plaintext_reg <= 128'b0;
-	   ciphertext_reg <= 128'b0;
-	   enc_cs <= 0;
+	if (wb_rst_i) begin
+	   cs <= 0;
 	end
 	else begin
-	   enc_cs <= 0;
+	   cs <= 0;	   
 	   if ((wb_stb_i  & wb_cyc_i) || wb_ack_o )begin 
-	   if (wb_we_i) begin
-	      case (wb_adr_i) 
-		// MSB first, LSB last
-	        `plainIn0: plaintext_reg[127:96]  <=  wb_dat_i;
-	        `plainIn1:  plaintext_reg[95:64]  <=  wb_dat_i;
-	        `plainIn2:  plaintext_reg[63:32]  <=  wb_dat_i;
-	        `plainIn3:  begin
-		   plaintext_reg[31:0]  <=  wb_dat_i;
-		   done_reg <= 0;		   
-		   enc_cs <= 1;
-		end
-	        `cipherOut0:  ciphertext_reg[127:96]  <=  wb_dat_i;
-	        `cipherOut1:  ciphertext_reg[95:64]  <=  wb_dat_i;
-	        `cipherOut2:  ciphertext_reg[63:32]  <=  wb_dat_i;
-	        `cipherOut3:  ciphertext_reg[31:0]  <=  wb_dat_i;
-	      endcase
-	   end 	   
-	end // if ((wb_stb_i  & wb_cyc_i) || wb_ack_o )
-
-	if (enc_cs)
-	   plaintext_o <= plaintext_reg;
-	
-	if (enc_done) 
-	  begin
-	     done_reg <= 1;
-	     ciphertext_reg <= ciphertext_i;
-	  end
+	      if (wb_we_i) begin
+		 case (wb_adr_i) 
+		   // MSB first, LSB last
+	           `plainIn0:  plaintext_reg[127:96]  <=  wb_dat_i;
+	           `plainIn1:  plaintext_reg[95:64]  <=  wb_dat_i;
+	           `plainIn2:  plaintext_reg[63:32]  <=  wb_dat_i;
+	           `plainIn3:  begin
+		      plaintext_reg[31:0]  <=  wb_dat_i;		   
+		      cs <= 1;
+		   end
+	           // `cipherOut0:  ciphertext_reg[127:96]  <=  wb_dat_i;
+	           // `cipherOut1:  ciphertext_reg[95:64]  <=  wb_dat_i;
+	           // `cipherOut2:  ciphertext_reg[63:32]  <=  wb_dat_i;
+	           // `cipherOut3:  ciphertext_reg[31:0]  <=  wb_dat_i;
+		 endcase
+	      end 	   
+	   end // if ((wb_stb_i  & wb_cyc_i) || wb_ack_o )
 	end
-     end
+     end // always @ (posedge wb_clk_i or posedge wb_rst_i)
+
+   always @(posedge wb_clk_i)
+     enc_cs <= cs;
+
+   always @(negedge cs)	
+     plaintext_o <= plaintext_reg;
+
+   always @(posedge wb_clk_i)
+    #5  if (enc_done)
+	      #5 ciphertext_reg[127:0] <= #5 ciphertext_i[127:0];
+	   
+   
+   reg state;
+   
+   parameter IDLE = 1'b0;
+   parameter WAIT_FOR_CS_HIGH = 1'b1;
+   
+   initial state = IDLE;
+   
+   always @(posedge wb_clk_i)
+   begin
+      case (state)
+        IDLE: 
+          if (enc_done) begin
+            done_reg <= 1;
+            state <= WAIT_FOR_CS_HIGH;
+        end
+        else begin
+          done_reg <= 0;
+          state <= IDLE;
+        end
+        WAIT_FOR_CS_HIGH:
+          if (cs) begin
+            done_reg<= 0;
+            state <= IDLE;
+        end
+      else begin
+        done_reg <= 1;
+        state <= WAIT_FOR_CS_HIGH;
+      end
+    endcase
+  end
+   
+   // always @(posedge wb_clk_i)
+   //   begin
+   // 	if (enc_done)
+   // 	  done_reg <= 1;
+   //   end
 
    always @(posedge wb_clk_i )begin
       if (wb_stb_i  & wb_cyc_i) begin //CS

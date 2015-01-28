@@ -33,7 +33,7 @@ module aes_enc_128 (
    wire 	 enc_done;
    wire 	 enc_ld;
    
-   assign key = 128'h126a83546212def2;
+   assign key = 128'h0123456789abcdef0123456789abcdef;
    
    // Instantiate the Unit Under Test (UUT)
    aes_cipher_top aes_cipher_128 

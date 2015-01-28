@@ -1,50 +1,102 @@
-/home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/sim/test_bench_top.v {1 {vlog -work work +incdir+/home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/rtl /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/sim/test_bench_top.v
-Model Technology ModelSim ALTERA vlog 10.1e Compiler 2013.06 Jun 12 2013
--- Compiling module test
-
-Top level modules:
-	test
-
-} {} {}} /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/rtl/aes_sbox.v {1 {vlog -work work +incdir+/home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/rtl /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/rtl/aes_sbox.v
+/home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/rtl/aes_sbox.v {1 {vlog -work work +incdir+/home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/sim /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/rtl/aes_sbox.v
 Model Technology ModelSim ALTERA vlog 10.1e Compiler 2013.06 Jun 12 2013
 -- Compiling module aes_sbox
 
 Top level modules:
 	aes_sbox
 
-} {} {}} /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/rtl/aes_inv_sbox.v {1 {vlog -work work +incdir+/home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/rtl /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/rtl/aes_inv_sbox.v
-Model Technology ModelSim ALTERA vlog 10.1e Compiler 2013.06 Jun 12 2013
--- Compiling module aes_inv_sbox
-
-Top level modules:
-	aes_inv_sbox
-
-} {} {}} /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/rtl/aes_inv_cipher_top.v {1 {vlog -work work +incdir+/home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/rtl /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/rtl/aes_inv_cipher_top.v
-Model Technology ModelSim ALTERA vlog 10.1e Compiler 2013.06 Jun 12 2013
--- Compiling module aes_inv_cipher_top
-
-Top level modules:
-	aes_inv_cipher_top
-
-} {} {}} /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/rtl/aes_cipher_top.v {1 {vlog -work work +incdir+/home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/rtl /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/rtl/aes_cipher_top.v
+} {} {}} /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/rtl/aes_cipher_top.v {1 {vlog -work work +incdir+/home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/sim /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/rtl/aes_cipher_top.v
 Model Technology ModelSim ALTERA vlog 10.1e Compiler 2013.06 Jun 12 2013
 -- Compiling module aes_cipher_top
 
 Top level modules:
 	aes_cipher_top
 
-} {} {}} /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/rtl/aes_rcon.v {1 {vlog -work work +incdir+/home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/rtl /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/rtl/aes_rcon.v
+} {} {}} /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/sim/wb_master32.v {1 {vlog -work work +incdir+/home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/sim /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/sim/wb_master32.v
 Model Technology ModelSim ALTERA vlog 10.1e Compiler 2013.06 Jun 12 2013
--- Compiling module aes_rcon
+-- Compiling module WB_MASTER32
 
 Top level modules:
-	aes_rcon
+	WB_MASTER32
 
-} {} {}} /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/rtl/aes_key_expand_128.v {1 {vlog -work work +incdir+/home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/rtl /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/rtl/aes_key_expand_128.v
+} {} {}} /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/rtl/aes_inv_sbox.v {1 {vlog -work work +incdir+/home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/sim /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/rtl/aes_inv_sbox.v
+Model Technology ModelSim ALTERA vlog 10.1e Compiler 2013.06 Jun 12 2013
+-- Compiling module aes_inv_sbox
+
+Top level modules:
+	aes_inv_sbox
+
+} {} {}} /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/sim/aes_128_top_tb.v {1 {vlog -work work +incdir+/home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/sim /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/sim/aes_128_top_tb.v
+Model Technology ModelSim ALTERA vlog 10.1e Compiler 2013.06 Jun 12 2013
+-- Compiling module aes_128_top_tb
+
+Top level modules:
+	aes_128_top_tb
+
+} {} {}} /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/rtl/aes_inv_cipher_top.v {1 {vlog -work work +incdir+/home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/sim /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/rtl/aes_inv_cipher_top.v
+Model Technology ModelSim ALTERA vlog 10.1e Compiler 2013.06 Jun 12 2013
+-- Compiling module aes_inv_cipher_top
+
+Top level modules:
+	aes_inv_cipher_top
+
+} {} {}} /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/rtl/aes_key_expand_128.v {1 {vlog -work work +incdir+/home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/sim /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/rtl/aes_key_expand_128.v
 Model Technology ModelSim ALTERA vlog 10.1e Compiler 2013.06 Jun 12 2013
 -- Compiling module aes_key_expand_128
 
 Top level modules:
 	aes_key_expand_128
+
+} {} {}} /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/sim/wb_bus_mon.v {1 {vlog -work work +incdir+/home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/sim /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/sim/wb_bus_mon.v
+Model Technology ModelSim ALTERA vlog 10.1e Compiler 2013.06 Jun 12 2013
+-- Compiling module WB_BUS_MON
+
+Top level modules:
+	WB_BUS_MON
+
+} {} {}} /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/rtl/aes_dec_wb.v {1 {vlog -work work +incdir+/home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/sim /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/rtl/aes_dec_wb.v
+Model Technology ModelSim ALTERA vlog 10.1e Compiler 2013.06 Jun 12 2013
+-- Compiling module aes_dec_wb
+
+Top level modules:
+	aes_dec_wb
+
+} {} {}} /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/sim/wb_model_defines.v {1 {vlog -work work +incdir+/home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/sim /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/sim/wb_model_defines.v
+Model Technology ModelSim ALTERA vlog 10.1e Compiler 2013.06 Jun 12 2013
+
+} {} {}} /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/rtl/aes_enc_wb.v {1 {vlog -work work +incdir+/home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/sim /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/rtl/aes_enc_wb.v
+Model Technology ModelSim ALTERA vlog 10.1e Compiler 2013.06 Jun 12 2013
+-- Compiling module aes_enc_wb
+
+Top level modules:
+	aes_enc_wb
+
+} {} {}} /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/rtl/aes_dec_128.v {1 {vlog -work work +incdir+/home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/sim /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/rtl/aes_dec_128.v
+Model Technology ModelSim ALTERA vlog 10.1e Compiler 2013.06 Jun 12 2013
+-- Compiling module aes_dec_128
+
+Top level modules:
+	aes_dec_128
+
+} {} {}} /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/sim/wb_master_behavioral.v {1 {vlog -work work +incdir+/home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/sim /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/sim/wb_master_behavioral.v
+Model Technology ModelSim ALTERA vlog 10.1e Compiler 2013.06 Jun 12 2013
+-- Compiling module WB_MASTER_BEHAVIORAL
+
+Top level modules:
+	WB_MASTER_BEHAVIORAL
+
+} {} {}} /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/rtl/aes_enc_128.v {1 {vlog -work work +incdir+/home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/sim /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/rtl/aes_enc_128.v
+Model Technology ModelSim ALTERA vlog 10.1e Compiler 2013.06 Jun 12 2013
+-- Compiling module aes_enc_128
+
+Top level modules:
+	aes_enc_128
+
+} {} {}} /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/rtl/aes_rcon.v {1 {vlog -work work +incdir+/home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/sim /home/bony/Workspace/PhD/CipherCloud_FPGA/altera/de2i-150/AES_Encrypt/rtl/aes_rcon.v
+Model Technology ModelSim ALTERA vlog 10.1e Compiler 2013.06 Jun 12 2013
+-- Compiling module aes_rcon
+
+Top level modules:
+	aes_rcon
 
 } {} {}}

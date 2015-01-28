@@ -29,8 +29,8 @@ module aes_dec_wb(
    input 	     dec_done;
 
    // data in/out
-input [127:0]     ciphertext_i;
-   output reg [127:0] plaintext_o;
+   input [127:0]     plaintext_i;
+   output reg [127:0] ciphertext_o;
 
    /************ Internal Signal/Register **************/
 
@@ -38,8 +38,11 @@ input [127:0]     ciphertext_i;
    reg [127:0] 	      plaintext_reg;
    reg [127:0] 	      ciphertext_reg;
 
-   reg [4:0] 	      count;
+   reg 		      done_reg; 		      
    reg 		      start;
+
+   reg 		      cs;
+ 		      
 
    //Register Addreses 
 `define cipherIn0 8'h00
@@ -54,42 +57,77 @@ input [127:0]     ciphertext_i;
 
    assign wb_ack_o = wb_cyc_i & wb_stb_i;
 
-   initial
-     count = 0;
-
    always @(posedge wb_clk_i or posedge wb_rst_i)
      begin
-	
 	if ( wb_rst_i )begin
-	   plaintext_reg <= 128'b0;
-	   ciphertext_reg <= 128'b0;      
+	   cs = 0; 
 	end
-	else if ((wb_stb_i  & wb_cyc_i) || wb_ack_o )begin 
-	   dec_cs <= 0;
-	   if (wb_we_i) begin
-	      case (wb_adr_i) 
-		// MSB first, LSB last
-	        `cipherIn0:  ciphertext_reg[127:96]  <=  wb_dat_i;
-	        `cipherIn1:  ciphertext_reg[95:64]  <=  wb_dat_i;
-	        `cipherIn2:  ciphertext_reg[63:32]  <=  wb_dat_i;
-	        `cipherIn3:  begin
-		   ciphertext_reg[31:0]  <=  wb_dat_i;
-		   dec_cs <= 1;
-		end
-	        `plainOut0:  plaintext_reg[127:96]  <=  wb_dat_i;
-	        `plainOut1:  plaintext_reg[95:64]  <=  wb_dat_i;
-	        `plainOut2:  plaintext_reg[63:32]  <=  wb_dat_i;
-	        `plainOut3:  plaintext_reg[31:0]  <=  wb_dat_i;
-	      endcase
-	   end    
-	   plaintext_o <= plaintext_reg;
-	   ciphertext_reg <= ciphertext_i;
-	end // if ((wb_stb_i  & wb_cyc_i) || wb_ack_o )
 	else begin
-	   plaintext_o <= plaintext_reg;
-	   ciphertext_reg <= ciphertext_i;
-	end
-     end
+	   cs <= 0;
+	   if ((wb_stb_i  & wb_cyc_i) || wb_ack_o )begin 
+	      if (wb_we_i) begin
+		 case (wb_adr_i) 
+		   // MSB first, LSB last
+	           `cipherIn0:  ciphertext_reg[127:96]  <=  wb_dat_i;
+	           `cipherIn1:  ciphertext_reg[95:64]  <=  wb_dat_i;
+	           `cipherIn2:  ciphertext_reg[63:32]  <=  wb_dat_i;
+	           `cipherIn3:  begin
+		      ciphertext_reg[31:0]  <=  wb_dat_i;
+		      cs <= 1;
+		   end
+	           // `plainOut0:  plaintext_reg[127:96]  <=  wb_dat_i;
+	           // `plainOut1:  plaintext_reg[95:64]  <=  wb_dat_i;
+	           // `plainOut2:  plaintext_reg[63:32]  <=  wb_dat_i;
+	           // `plainOut3:  plaintext_reg[31:0]  <=  wb_dat_i;
+		 endcase
+	      end // if (wb_we_i)
+	   end // if ((wb_stb_i  & wb_cyc_i) || wb_ack_o )
+	end // else: !if( wb_rst_i )	
+     end // always @ (posedge wb_clk_i or posedge wb_rst_i)
+
+
+   
+   always @(posedge wb_clk_i)
+     dec_cs <= cs;
+
+   always @(negedge cs)	
+     ciphertext_o <= ciphertext_reg;
+
+   always @(posedge wb_clk_i)
+    #5  if (dec_done)
+	      #5 plaintext_reg[127:0] <= #5 plaintext_i[127:0];
+	   
+   
+   reg state;
+   
+   parameter IDLE = 1'b0;
+   parameter WAIT_FOR_CS_HIGH = 1'b1;
+   
+   initial state = IDLE;
+   
+   always @(posedge wb_clk_i)
+   begin
+      case (state)
+        IDLE: 
+          if (dec_done) begin
+            done_reg <= 1;
+            state <= WAIT_FOR_CS_HIGH;
+        end
+        else begin
+          done_reg <= 0;
+          state <= IDLE;
+        end
+        WAIT_FOR_CS_HIGH:
+          if (cs) begin
+            done_reg<= 0;
+            state <= IDLE;
+        end
+      else begin
+        done_reg <= 1;
+        state <= WAIT_FOR_CS_HIGH;
+      end
+    endcase
+  end
 
    always @(posedge wb_clk_i )begin
       if (wb_stb_i  & wb_cyc_i) begin //CS
@@ -102,7 +140,7 @@ input [127:0]     ciphertext_i;
 	   `plainOut1:  wb_dat_o  <=  ciphertext_reg[95:64];
 	   `plainOut2:  wb_dat_o  <=  ciphertext_reg[63:32];
 	   `plainOut3:  wb_dat_o  <=  ciphertext_reg[31:0];	   
-	   `decdone:  wb_dat_o  <=  {31'b0, dec_done};
+	   `decdone:  wb_dat_o  <=  {31'b0, done_reg};
 	 endcase
       end 
    end

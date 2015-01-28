@@ -110,6 +110,9 @@ module orpsoc_top
    sdc_cmd_pad_io , sdc_dat_pad_io ,  sdc_clk_pad_o, 
    sdc_card_detect_pad_i,
 `endif  
+`ifdef AES_DEC
+	aes_key_load,
+`endif
    sys_clk_pad_i,
 
    rst_n_pad_i  
@@ -226,6 +229,9 @@ module orpsoc_top
    inout [3:0] 		      sdc_dat_pad_io ;
    output 		      sdc_clk_pad_o ;
 `endif     
+`ifdef AES_DEC
+	input					aes_key_load;
+`endif
    ////////////////////////////////////////////////////////////////////////
    //
    // Clock and reset generation module
@@ -2781,6 +2787,7 @@ module orpsoc_top
      (
       .aes_clk_in				(wb_clk),
       .aes_rst_in				(!wb_rst),
+		.aes_key_ld				(!aes_key_load),
       // Wishbone slave interface
       .wb_adr_i				(wbs_d_aes_dec_adr_i),
       .wb_dat_i				(wbs_d_aes_dec_dat_i),
